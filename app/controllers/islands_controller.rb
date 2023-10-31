@@ -1,4 +1,5 @@
 class IslandsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
@@ -14,7 +15,7 @@ class IslandsController < ApplicationController
 
   def create
     @island = Island.new(island_params)
-    # @island.user = current_user
+    @island.user = current_user
     if @island.save
       redirect_to islands_path(@island)
     else
