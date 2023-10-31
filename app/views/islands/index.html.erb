@@ -1,0 +1,9 @@
+<ul>
+  <% @islands.each do |island| %>
+    <li><%= island.name %></li>
+    <li><%= island.location %></li>
+    <li><%= island.price %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new island", new_island_path %>
