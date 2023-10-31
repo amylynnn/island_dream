@@ -1,3 +1,9 @@
-<h1>Create New Island</h1>
+<div class="container mt-5">
+  <h1>Create New Island</h1>
 
-<%= render "form", island: @island %>
+  <%= render "form", island: @island %>
+
+  <%= link_to islands_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>
