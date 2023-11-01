@@ -16,3 +16,5 @@
 <hr>
 
 <%= link_to "delete", island_path(@island), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" } %>
+
+<%= link_to "Book now", new_island_booking_path(@island)%>

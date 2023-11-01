@@ -1,0 +1,7 @@
+<h1 class="mb-5">My Bookings</h1>
+    <div class="card-product">
+      <% @bookings.each do |booking| %>
+      <h2> <%= booking.island.name %></h2>
+      <h2> <%= booking.island.location %></h2>
+<% end %>
+</div>
