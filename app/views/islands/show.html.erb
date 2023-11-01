@@ -3,6 +3,10 @@
 <p><%= @island.location %></p>
 <p>$<%= @island.price %></p>
 
+<% @island.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <%= link_to islands_path do %>
     <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
   <% end %>
@@ -12,3 +16,5 @@
 <hr>
 
 <%= link_to "delete", island_path(@island), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" } %>
+
+<%= link_to "Book now", new_island_booking_path(@island)%>

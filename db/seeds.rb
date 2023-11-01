@@ -11,35 +11,30 @@ User.destroy_all
 
 puts 'Creating users'
 
-user1 = User.create(first_name: "Adam", last_name: "Amylynn", email: "adamamylynn@gmail.com", password: "123456")
+user_one = User.create(first_name: "Adam", last_name: "Amylynn", email: "adamamylynn@gmail.com", password: "123456")
 
 puts 'Creating islands...'
 
-mysterious = {
-  name: 'Mysterious', location: 'Blue bay',
-  price: 500, user: user1
+la_digue = {
+  name: 'La Digue', location: 'Seychelles',
+  price: '$ 1200'
 }
-coconut = {
-  name: 'Coconut', location: 'Mahe',
-  price: 700, user: user1
-}
-
-anse = {
-  name: 'Anse', location: 'Anse Etoile',
-  price: 1000, user: user1
+mahe = {
+  name: 'Mahe', location: 'Seychelles',
+  price: '$ 1400'
 }
 
-desroches = {
-  name: 'Desroches', location: 'Seychelles',
-  price: 1300, user: user1
+anse_etoile = {
+  name: 'Anse Etoile', location: 'Seychelles',
+  price: '$ 2000'
 }
 
-praslin = {
-  name: 'Praslin', location: 'Palme',
-  price: 1700, user: user1
+bird_island = {
+  name: 'Bird Island', location: 'Seychelles',
+  price: '$ 2000'
 }
 
-[mysterious, coconut, anse, desroches, praslin].each do |attributes|
+[la_digue, mahe, anse_etoile, bird_island].each do |attributes|
   @island = Island.create!(attributes)
   puts "Created #{@island.name}"
 end

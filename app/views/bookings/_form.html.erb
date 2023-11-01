@@ -1,0 +1,5 @@
+<%= simple_form_for [@island, @booking] do |f| %>
+  <%= f.date_field :start_dates, class:'form-control' %>
+  <%= f.date_field :end_dates, class:'form-control' %>
+  <%= f.submit "Reserve", class: "btn btn-primary" %>
+<% end %>

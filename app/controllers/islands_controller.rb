@@ -1,6 +1,6 @@
 class IslandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_island, only: %i[show edit update destroy]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
+  # before_action :set_island, only: %i[show edit update destroy]
 
   def index
     @islands = Island.all
@@ -11,6 +11,7 @@ class IslandsController < ApplicationController
   end
 
   def show
+    @island = Island.find(params[:id])
   end
 
   def create
@@ -43,6 +44,6 @@ class IslandsController < ApplicationController
   end
 
   def island_params
-    params.require(:island).permit(:location, :price, :name)
+    params.require(:island).permit(:location, :price, :name, photos: [])
   end
 end
