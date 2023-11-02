@@ -17,21 +17,21 @@ puts 'Creating islands...'
 
 la_digue = {
   name: 'La Digue', location: 'Seychelles',
-  price: '$ 1200'
+  price: '$ 1200', user: user_one
 }
 mahe = {
   name: 'Mahe', location: 'Seychelles',
-  price: '$ 1400'
+  price: '$ 1400', user: user_one
 }
 
 anse_etoile = {
   name: 'Anse Etoile', location: 'Seychelles',
-  price: '$ 2000'
+  price: '$ 2000', user: user_one
 }
 
 bird_island = {
   name: 'Bird Island', location: 'Seychelles',
-  price: '$ 2000'
+  price: '$ 2000', user: user_one
 }
 
 [la_digue, mahe, anse_etoile, bird_island].each do |attributes|
