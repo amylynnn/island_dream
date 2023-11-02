@@ -1,7 +1,19 @@
-<h1 class="mb-5">My Bookings</h1>
-    <div class="card-product">
-      <% @bookings.each do |booking| %>
-      <h2> <%= booking.island.name %></h2>
-      <h2> <%= booking.island.location %></h2>
+<div class="main-container p-4" >
+<div class="card mx-auto" style="width: 55rem;">
+    <div class="card-header text-center">
+  <h1 class="mt-5 text-center">Thank you for your reservation</h1>
+        <ul class="list-group">
+        <% @bookings.each do |booking| %>
+        <li class="list-group-item">
+                  <%= booking.island.name %>,
+                  <%= booking.island.location %>,
+                  <%= booking.start_dates %>
+                  <%= booking.end_dates  %>
+                  $ <%= booking.price %></li>
+      <br>
+
 <% end %>
+<p class="mt-5 text-center" ><%= link_to "Back to list", islands_path %></p>
+</div>
+</div>
 </div>

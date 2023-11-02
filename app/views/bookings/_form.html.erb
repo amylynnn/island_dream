@@ -1,5 +1,30 @@
-<%= simple_form_for [@island, @booking] do |f| %>
-  <%= f.date_field :start_dates, class:'form-control' %>
-  <%= f.date_field :end_dates, class:'form-control' %>
-  <%= f.submit "Reserve", class: "btn btn-primary" %>
-<% end %>
+<div class="main-container p-4" >
+  <div class="card mx-auto bg-light" style="width: 50rem;">
+    <div class="card-header text-center">
+      <h4 class="card-title">Your trip :</h4>
+        <%= simple_form_for [@island, @booking] do |f| %>
+        <%= f.input :start_dates, as: :date, required: true, input_html: {class: "datepicker"} %> 
+        <%= f.input :end_dates, as: :date, required: true, input_html: {class: "datepicker"} %>
+        <div class="form-group">
+    <label for="exampleFormControlSelect1">Guests</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1 guest</option>
+      <option>2 guests</option>
+      <option>3 guests</option>
+      <option>4 guests</option>
+      <option>5 guests</option>
+      <option>6 guests</option>
+      <option>7 guests</option>
+      <option>8 guests</option>
+      <option>9 guests</option>
+      <option>10 guests</option>
+
+    </select>
+  </div>
+  <div class="form-group">
+        <br>
+        <%= f.submit "Reserve", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>

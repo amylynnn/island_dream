@@ -19,6 +19,8 @@ class BookingsController < ApplicationController
     # end_date = Date.strptime(params[:booking][:end_dates], '%d/%m/%Y')
     # @booking = Booking.new(island_id: params[:booking][:island_id], start_dates: start_date, end_dates: end_date)
     @booking.user = current_user
+    @booking_days = (@booking.end_dates - @booking.start_dates).to_i
+    @booking.price = @island.price * @booking_days
     if @booking.save
       redirect_to bookings_path
     else
