@@ -1,7 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: (#167FFB, #0F60C4);
+  padding: 1px 0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -9,9 +13,11 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-
+  font-size: 20px;
 }
-
-.navbar-lewagon {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+img {
+  border: 1px;
+  padding: 1px 0;
+  border: 2px solid #167FFB;
+  border-radius: 2%;
 }
