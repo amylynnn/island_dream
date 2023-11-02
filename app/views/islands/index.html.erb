@@ -1,11 +1,25 @@
-<ul>
-  <% @islands.each do |island| %>
-  <%= link_to island_path(island) do %>
-    <div>
-        <li><%= island.name %></li>
-    </div>
+<div class="container py-5">
+  <div class="row">
+    <% @islands.each do |island| %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <% if island.photos.attached? %>
+            <%= cl_image_tag island.photos.first.key, class: "card-img-top", height: 200, crop: :fill %>
+          <% else %>
+            <!-- You can add a placeholder image here if no photos are attached -->
+            <%= image_tag "logo.png", class: "card-img-top", height: 200, alt: "Placeholder Image" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= island.name %></h5>
+            <p class="card-text"><%= island.location %></p>
+            <p class="card-text">$<%= island.price %></p>
+            <a href="<%= island_path(island) %>" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+</div>
 
-<%= link_to "Add a new island", new_island_path %>
+  <%# <%= link_to island_path(island) do %>
+  <%# <%= link_to "Add a new island", new_island_path %>
