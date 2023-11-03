@@ -1,25 +1,38 @@
 <div class="container py-5">
+<div class="search-form col-12 col-sm-4 col-md-4">
+  <%= form_with url: islands_path, method: :get, class: "d-flex w-100" do %>
+    <div class="search-form-control form-group w-100">
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type a keyword"
+      %>
+    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+
   <div class="row">
-    <% @islands.each do |island| %>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-        <div class="card">
-          <% if island.photos.attached? %>
-            <%= cl_image_tag island.photos.first.key, class: "card-img-top", height: 200, crop: :fill %>
-          <% else %>
-            <!-- You can add a placeholder image here if no photos are attached -->
-            <%= image_tag "logo.png", class: "card-img-top", height: 200, alt: "Placeholder Image" %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= island.name %></h5>
-            <p class="card-text"><%= island.location %></p>
-            <p class="card-text">$<%= island.price %></p>
-            <a href="<%= island_path(island) %>" class="btn btn-primary">View Details</a>
+    <% if @islands.any? %>
+      <% @islands.each do |island| %>
+        <div class="card-island col-12 col-sm-6 col-md-4 col-lg-3 mb-4 ">
+          <div class="card-island-img">
+            <% if island.photos.attached? %>
+              <%= cl_image_tag island.photos.first.key, class: "card-img-top", height: 200, crop: :fill %>
+            <% else %>
+              <!-- You can add a placeholder image here if no photos are attached -->
+              <%= image_tag "logo.png", class: "card-img-top", height: 200, alt: "Placeholder Image" %>
+            <% end %>
+            <div class="card-island-info">
+              <h5 class="card-title"><%= island.name %></h5>
+              <p class="card-text"><%= island.location %></p>
+              <p class="card-text">$ <%= island.price %> by night </p>
+              <a href="<%= island_path(island) %>" class="btn btn-secondary">View Details</a>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-  <%# <%= link_to island_path(island) do %>
-  <%# <%= link_to "Add a new island", new_island_path %>
