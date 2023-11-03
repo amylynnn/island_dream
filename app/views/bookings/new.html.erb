@@ -1,5 +1,8 @@
 <div class="main-container p-4" >
   <h2> <%= @island.name  %> </h2>
+  <% if @island.photos.attached? %>
+    <%= cl_image_tag @island.photos.first.key %>
+  <% end %>
   <br>
   <div class="card-body d-flex flex-column justify-content-center align-items-center border-top">
     <%= render 'form', booking: @booking %>

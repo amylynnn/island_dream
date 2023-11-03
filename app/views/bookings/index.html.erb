@@ -1,7 +1,7 @@
 <div class="main-container p-4" >
 <div class="card mx-auto" style="width: 55rem;">
     <div class="card-header text-center">
-  <h1 class="mt-5 text-center">Thank you for your reservation</h1>
+  <h1 class="mt-5 text-center">Thank you for your reservation ☺️</h1>
         <ul class="list-group">
         <% @bookings.each do |booking| %>
         <li class="list-group-item">
@@ -13,7 +13,7 @@
       <br>
 
 <% end %>
-<p class="mt-5 text-center" ><%= link_to "Back to list", islands_path %></p>
+<p class="mt-5 text-center" ><%= link_to "Back to list", islands_path, class: "btn btn-success" %></p>
 </div>
 </div>
 </div>
