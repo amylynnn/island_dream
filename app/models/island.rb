@@ -5,4 +5,5 @@ class Island < ApplicationRecord
   validates :location, presence: true
   validates :name, presence: true
   validates :price, presence: true
+  validates :photos, presence: true
 end

@@ -12,14 +12,11 @@
           <div class="card-body">
             <h5 class="card-title"><%= island.name %></h5>
             <p class="card-text"><%= island.location %></p>
-            <p class="card-text">$<%= island.price %></p>
-            <a href="<%= island_path(island) %>" class="btn btn-primary">View Details</a>
+            <p class="card-text">$ <%= island.price %> by night </p>
+            <a href="<%= island_path(island) %>" class="btn btn-secondary">View Details</a>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-  <%# <%= link_to island_path(island) do %>
-  <%# <%= link_to "Add a new island", new_island_path %>
