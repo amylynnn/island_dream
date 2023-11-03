@@ -1,3 +1,8 @@
+
+body {
+  font-family: 'Gill Sans', sans-serif;
+}
+
 .container {
   width: 700px;
   color: azure;
@@ -6,19 +11,30 @@
 
 
 
-.btn-primary {
-    color: white;
+.btn-secondary {
     transition-duration: 0.4s;
-    border-radius: 50px;
-    padding: 10px 15px;
-    border-width: 1px;
     border-style: solid;
-    border-image: initial;
+}
+
+.btn-secondary:hover {
+  border: 2px solid #7dd87d;
+  background-color: #7dd87d;
 }
 
 .card {
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px #7dd87d;
+  transform: scale(0);
+  animation: scaleIn 1s forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 
@@ -39,13 +55,4 @@
 
 .list-group-item:hover {
   background-color: #e0e0e0;
-}
-
-body {
-  background-image: url('your-background-image.jpg');
-
-
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
 }
