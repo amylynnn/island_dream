@@ -1,57 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Property Listing</title>
-</head>
-<body>
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-8">
-        <!-- Bootstrap Carousel -->
-        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-          <% @island.photos.each_with_index do |photo, index| %>
-            <div class="carousel-item active">
-              <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
-            </div>
-            <% end %>
+<div class="container">
+  <div class="island-card d-flex">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <% if @island.photos.attached? %>
+            <%= cl_image_tag(@island.photos.first.key, height: 300, width: 400, crop: :fill) %>
+          <% end %>
+        </div>
+      <% @island.photos.each do |photo| %>
+        <div class="carousel-item">
+          <%= cl_image_tag(photo.key, height: 300, width: 400, crop: :fill) %>
+        </div>
+      <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
-            <!-- Add more carousel items as needed -->
+    <div class="p-4">
+      <div class="d-flex justify-content-between">
+        <h2><%= @island.name %></h2>
+        <div class="d-flex">
+          <div class="mx-2">
+            <%= link_to edit_island_path(@island) do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <%= link_to island_path(@island), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
         </div>
       </div>
-      <div class="col-md-4">
-        <!-- Property Details -->
-        <h1>
-          <%= @island.name %>
-          <%= link_to edit_island_path(@island) do %>
-            <i class="fa-regular fa-pen-to-square"></i>
-          <% end %>
-          <%# <%= link_to "delete", island_path(@island), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" } do %> %>
-            <%# <i class="fa-solid fa-trash"></i> %>
-          <%# <% end %> %>
-        </h1>
+      <div>
         <p><%= @island.location %></p>
         <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
         <p>Rating:⭐⭐⭐⭐⭐</p>
-        <p>$<%= @island.price %></p>
-        <%# <button class="btn btn-primary w-100">Book Now</button> %>
+        <p>$ <%= @island.price %> by night</p>
         <%= link_to "Book now", new_island_booking_path(@island[:id]), class: "btn btn-outline-primary" %>
       </div>
     </div>
   </div>
+
+</div>
+    <%= link_to islands_path do %>
+        <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+      <% end %>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
