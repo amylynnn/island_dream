@@ -1,12 +1,14 @@
 class IslandsController < ApplicationController
-
-
   skip_before_action :authenticate_user!, only: %i[index show]
 
   before_action :set_island, only: %i[show edit update destroy]
 
   def index
-    @islands = Island.all
+    if params[:query].present?
+      @islands = Island.search_by_location_and_name(params[:query])
+    else
+      @islands = Island.all
+    end
   end
 
   def new
