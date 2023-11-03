@@ -4,4 +4,7 @@
 //= link_tree ../../../vendor/javascript .js
 //= link popper.js
 //= link bootstrap.min.js
+
+
+
 //= link controllers/flatpickr_controller.js
