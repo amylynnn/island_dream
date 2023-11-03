@@ -1,4 +1,15 @@
 .island-card {
   display: flex;
-  background-color: red;
+}
+
+/* .island-card-container {
+
+} */
+
+.island-top {
+  color: black;
+  min-width: 350px;
+  h2 {
+    font-weight: bold;
+  }
 }
