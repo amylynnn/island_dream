@@ -2,9 +2,9 @@
   <div class="card mx-auto bg-light" style="width: 50rem;">
     <div class="card-header text-center">
       <h4 class="card-title">Your trip :</h4>
-        <%= simple_form_for [@island, @booking] do |f| %>
-        <%= f.input :start_dates, as: :date, required: true, input_html: {class: "datepicker"} %> 
-        <%= f.input :end_dates, as: :date, required: true, input_html: {class: "datepicker"} %>
+        <%= simple_form_for [@island, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :start_dates, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_dates, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
         <div class="form-group">
     <label for="exampleFormControlSelect1">Guests</label>
     <select class="form-control" id="exampleFormControlSelect1">
@@ -18,12 +18,12 @@
       <option>8 guests</option>
       <option>9 guests</option>
       <option>10 guests</option>
-
+        <br>
     </select>
   </div>
   <div class="form-group">
         <br>
-        <%= f.submit "Reserve", class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-secondary" %>
         <% end %>
     </div>
   </div>
